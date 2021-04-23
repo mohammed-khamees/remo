@@ -1,6 +1,7 @@
 'use strict';
 
-const remoRouter = require('./router/router');
+const userRouter = require('./router/userRoutes');
+const tableRouter = require('./router/tableRoutes');
 
 // 3rd Party Resources
 const express = require('express');
@@ -17,7 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.use('/cafe', remoRouter);
+app.use('/cafe', tableRouter);
+app.use('/user', tableRouter);
 
 module.exports = {
 	app,
