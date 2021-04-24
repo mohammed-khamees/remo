@@ -18,7 +18,7 @@ async function createHandler(req, res) {
 
 async function getAllUsersHandler(req, res) {
 	try {
-		const resObj = await users.read();
+		const resObj = await users.get();
 		res.json(resObj);
 	} catch (error) {
 		next(error);
@@ -27,7 +27,7 @@ async function getAllUsersHandler(req, res) {
 
 async function getOneUsersHandler(req, res) {
 	try {
-		const resObj = await users.read(req.params.id);
+		const resObj = await users.get(req.params.id);
 		res.json(resObj);
 	} catch (error) {
 		next(error);

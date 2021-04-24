@@ -1,5 +1,9 @@
+'use strict';
+
 const express = require('express');
-const userRouter = express.Router();
+const router = express.Router();
+
+
 const {
 	createHandler,
 	getAllUsersHandler,
@@ -8,4 +12,11 @@ const {
 	deleteUsersHandler,
 } = require('../controller/userController');
 
-module.exports = userRouter;
+
+router.post('/', createHandler);
+router.get('/', getAllUsersHandler);
+router.get('/:id', getOneUsersHandler);
+router.put('/:id', updateUsersHandler);
+router.delete('/:id', deleteUsersHandler);
+
+module.exports = router;
